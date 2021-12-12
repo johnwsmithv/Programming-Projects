@@ -1,3 +1,14 @@
+/**
+ * @file blackJack.cpp
+ * @author John W. Smith V (jwsv61099@gmail.com)
+ * @brief The point of this CPP file is to create as Black Jack Game
+ * @version 0.1
+ * @date 2021-11-27
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
+
 #include <iostream>
 #include <ostream>
 #include <vector>
@@ -20,8 +31,8 @@ void blackJack::playBlackJack(){
     bool playerWantHit = true;
     std::cout << "Welcome to Black Jack. What is your name?\n";
     std::cin >> playersName;
-    std::cout<< "Hello " << playersName << "! Alright so the goal is to beat the dealer, me.\n" <<
-    "If you score higher then I do, and have less than or equal to 21 then you win." << 
+    std::cout<< "Hello " << playersName << "! The goal is to beat the dealer, me.\n" <<
+    "If you score higher than I do, and have less than or equal to 21 then you win." << 
     "\nIf I have a higher card value then you, or I tie you then I win. Good luck!\n";
 
     // The start of the game where the dealer deals the cards to the player and him/herself
@@ -107,12 +118,26 @@ vector<string> blackJack::dealCards(){
     return deckOfCards;
 }
 
+/**
+ * @brief Deal a card to whoevers deck of cards was passed as the vector
+ * 
+ * @param cards The vector of cards of either the player or the dealer
+ * @return vector<string> 
+ */
 vector<string> blackJack::dealCard(vector<string> cards){
     cards.push_back(deckOfCards[0]);
     deckOfCards.erase(deckOfCards.begin());
     return cards;
 }
 
+/**
+ * @brief This function calculates the score of the player whose cards were passed
+ * 
+ * @param cards A Vector which contains the string representations of the cards the user has
+ * @param currentScore The persons current score
+ * @param isPlayer A bool saying if this is the player or not
+ * @return int 
+ */
 int blackJack::calculateScore(vector<string> cards, int currentScore, bool isPlayer){
     int aceValue = 0;
     int i;

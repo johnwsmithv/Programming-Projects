@@ -27,6 +27,7 @@ inline long double PerformanceFrequency() noexcept
 int main(int argc, char * argv[]){
     const int rows = atoi(argv[1]);
     const int cols = atoi(argv[2]);
+    std::cout << "The rows and cols are: (" << rows << ", " << cols << ")\n";
     int counter = 0;
     
     // Alllocating memeory to the two-2D arrays
@@ -40,13 +41,14 @@ int main(int argc, char * argv[]){
     // Time for the regular loop to fill the Matrix
     // auto start = std::chrono::high_resolution_clock::now();
     long double start = PerformanceCounter();
+#pragma omp parallel
     for(int i = 0; i < rows; i++){
         for(int j = 0; j < cols; j++){
             regularMatrix[i][j] = counter++;
-            // std::cout << regularMatrix[i][j] << " ";
+            std::cout << regularMatrix[i][j] << " ";
         }
         counter = i + 1;
-        // std::cout << "\n";
+        std::cout << "\n";
     }
     long double finish = PerformanceCounter();
 

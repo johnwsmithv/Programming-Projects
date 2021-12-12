@@ -2,7 +2,7 @@
 #include <ostream>
 #include <vector>
 #include <cstdint>
-#include "../library/uint256_t/uint256_t.h"
+#include <uint256_t.h>
 
 using namespace std;
 
@@ -22,7 +22,7 @@ unsigned long long memoizedFibonaci(uint256_t n){
     vector<uint256_t> fibSeq = {0, 1};
     for(int i = 2; i < n; i++){
         fibSeq.push_back(fibSeq[i - 1] + fibSeq[i - 2]);
-        std::cout << fibSeq[i] << " ";
+        std::cout << i << ": " << fibSeq[i] << "\n";
     }
     std::cout << "\n";
     return fibSeq[n - 1];
