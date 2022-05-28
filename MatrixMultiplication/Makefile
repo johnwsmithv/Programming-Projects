@@ -1,2 +1,2 @@
 matrix:
-	g++ -g -fopenmp matrixMultiply.cpp -o matrixMultiply
+	g++ -g -O2 -fopenmp matrixMultiply.cpp -o matrixMultiply

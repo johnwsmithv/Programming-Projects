@@ -18,7 +18,7 @@ int fibonacciSequenceRecursion(int n){
     }
 }
 
-unsigned long long memoizedFibonaci(uint256_t n){
+unsigned long long memoizedFibonacci(uint256_t n){
     vector<uint256_t> fibSeq = {0, 1};
     for(int i = 2; i < n; i++){
         fibSeq.push_back(fibSeq[i - 1] + fibSeq[i - 2]);
@@ -32,6 +32,6 @@ int main(){
     int userInput;
     std::cout << "Here is the fibonacci sequence using memoization\n";
     std::cin >> userInput;
-    unsigned long long fibNum = memoizedFibonaci(userInput);
+    unsigned long long fibNum = memoizedFibonacci(userInput);
     cout << "Here is Fib #" << userInput << ": " << fibNum << "\n";
 }
